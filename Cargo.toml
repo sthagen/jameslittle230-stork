@@ -1,6 +1,6 @@
 [package]
 name = "stork-search"
-version = "1.0.3"
+version = "1.0.4"
 authors = ["James Little <littleguy23@gmail.com>"]
 edition = "2018"
 documentation = "https://stork-search.net/docs"
@@ -45,6 +45,13 @@ wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
 # See: https://github.com/rustwasm/wasm-pack/issues/886#issuecomment-667669802
 [package.metadata.wasm-pack.profile.release]
 wasm-opt = ["-Oz", "--enable-mutable-globals"]
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "basic"
+harness = false
 
 [profile.release]
 lto = true

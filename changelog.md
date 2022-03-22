@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.4.2
+
+### Bug Fixes
+
+- Fixes a regression where the test server (`stork test`) was inaccessible
+- Fixes a regression where error messages weren't displayed if no files could successfully be indexed
+
 ## v1.4.1
 
 [Mar 12, 2022](https://github.com/jameslittle230/stork/releases/tag/v1.4.1)

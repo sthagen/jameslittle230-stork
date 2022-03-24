@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.0
+
+### New Features
+
+- Adds the Javascript registration option `transformResultUrl`, which, when
+  set, transforms search result URLs from what's described in the search index
+  to what gets output in the DOM.
+
 ## v1.4.2
 
 [Mar 22, 2022](https://github.com/jameslittle230/stork/releases/tag/v1.4.2)
@@ -8,6 +16,7 @@
 
 - Fixes a regression where the test server (`stork test`) was inaccessible
 - Fixes a regression where error messages weren't displayed if no files could successfully be indexed
+- Themes now compensate for border radius when displaying progress bar
 
 ## v1.4.1
 

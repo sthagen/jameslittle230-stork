@@ -22,17 +22,14 @@ jobs:
         uses: actions-rs/install@v0.1
         with:
           crate: wasm-pack
-
-      - name: Run cargo-tarpaulin
-        uses: actions-rs/tarpaulin@v0.1
+      
+      - name: Set up just
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions-rs/install@v0.1
         with:
-          version: '0.15.0'
-          args: '-- --test-threads 1'
+          crate: just
 
-      - run: |
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          ./codecov -t ${CODECOV_TOKEN}
+      - run: just _rust-test
 
   js_tests:
     name: "Run JS Tests"
@@ -140,6 +137,7 @@ jobs:
           $SETUP_REPO
           $RUN_BENCHMARK > ${{ env.BASELINE_JSON }}
           
+          git stash
           git checkout ${{ github.event.pull_request.head.sha }}
           $SETUP_REPO
           $RUN_BENCHMARK > ${{ env.CONTENDER_JSON }}
